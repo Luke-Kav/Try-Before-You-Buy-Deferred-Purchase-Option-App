@@ -1,4 +1,4 @@
-This is a 'Try as You Buy' Deferred Purchase Option App.
+This is a Skeleton of a 'Try Before You Buy' Deferred Purchase Option App.
 
 It uses Shopify's Selling plans which are available in the Subscriptions API.
 
