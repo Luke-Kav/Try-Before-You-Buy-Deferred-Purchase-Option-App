@@ -1,3 +1,15 @@
+# What this is
+
+This is a node 'Try as You Buy' Deferred Purchase Option App.
+It uses Shopify's Selling plans availabel in the Subscriptions API.
+
+Note - you will need to create a Selling Plan with the 'TRY BEFORE YOU BUY' Purchase option Category set, prior to building the app. More information is [here](https://shopify.dev/docs/apps/selling-strategies/purchase-options/deferred#purchase-option-category)
+
+The constants.js file provides the data for the app components.
+
+We create one API endpoint to create purchase options.
+We create one API endpoint for listing purchase options.
+
 # Shopify React Frontend App
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)

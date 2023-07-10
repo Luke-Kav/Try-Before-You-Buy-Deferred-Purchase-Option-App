@@ -20,6 +20,37 @@ const STATIC_PATH =
 
 const app = express();
 
+const CREATE_DEFERRED_PURCHASE_MUTATION = `
+mutation sellingPlanGroupCreate($input: SellingPlanGroupInput!) {
+  sellingPlanGroupCreate(input: $input) {
+    sellingPlanGroup {
+      id
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}`;
+
+const GET_DEFERRED_PURCHASES_QUERY = `
+query SellingPlanGroupsList {
+  sellingPlanGroups(first: 10) {
+    edges {
+      cursor
+      node {
+        id
+        name
+        createdAt
+        productCount
+        summary
+      }
+    }
+  }
+}
+`;
+
+
 // Set up Shopify authentication and webhook handling
 app.get(shopify.config.auth.path, shopify.auth.begin());
 app.get(
@@ -38,6 +69,35 @@ app.post(
 app.use("/api/*", shopify.validateAuthenticatedSession());
 
 app.use(express.json());
+
+app.post("/api/deferred-purchase/create", async (req, res) => {
+  const client = new shopify.api.clients.Graphql({
+    session: res.locals.shopify.session,
+  });
+
+  const data = await client.query({
+    data: {
+      query: CREATE_DEFERRED_PURCHASE_MUTATION,
+      variables: req.body,
+    },
+  });
+
+  res.send(data.body);
+});
+
+app.get("/api/deferred-purchase", async (req, res) => {
+  const client = new shopify.api.clients.Graphql({
+    session: res.locals.shopify.session,
+});
+
+const data = await client.query({
+  data: {
+    query: GET_DEFERRED_PURCHASES_QUERY,
+  }
+});
+res.send(data.body);
+});
+
 
 app.get("/api/products/count", async (_req, res) => {
   const countData = await shopify.api.rest.Product.count({
