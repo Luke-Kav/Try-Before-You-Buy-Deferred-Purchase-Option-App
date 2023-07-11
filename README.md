@@ -5,12 +5,18 @@ It uses Shopify's Selling plans which are available in the Subscriptions API.
 Note - you will need to create a Selling Plan with the 'TRY BEFORE YOU BUY' Purchase option Category switched on. This is declared in the 
 web /index.js file.
 
- More information on Purchase Option Categories can be found [here](https://shopify.dev/docs/apps/selling-strategies/purchase-options/deferred#purchase-option-category)
+More information on Purchase Option Categories can be found [here](https://shopify.dev/docs/apps/selling-strategies/purchase-options/deferred#purchase-option-category)
 
 There are two API calls to GraphQL Admin API in the App.
 
 We create one API endpoint to create purchase options.
 We create one API endpoint for listing purchase options.
+
+# Disclaimer
+
+This code is fully unofficial and NOT guaranteed to pass the [public app review](https://shopify.dev/docs/apps/store/review) for Shopify app store. The official requirements are described [here](https://shopify.dev/docs/apps/store/requirements).
+
+Please follow the [Shopify API Licence and Terms of Use](https://www.shopify.com/legal/api-terms)
 
 # Shopify App Template for Node
 
