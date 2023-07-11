@@ -2,10 +2,12 @@ This is a Skeleton of a 'Try Before You Buy' Deferred Purchase Option App.
 
 It uses Shopify's Selling plans which are available in the Subscriptions API.
 
-Note - you will need to create a Selling Plan with the 'TRY BEFORE YOU BUY' Purchase option Category set to building the app. This is declared in the 
-web /index.js 
+Note - you will need to create a Selling Plan with the 'TRY BEFORE YOU BUY' Purchase option Category switched on. This is declared in the 
+web /index.js file.
 
- More information is [here](https://shopify.dev/docs/apps/selling-strategies/purchase-options/deferred#purchase-option-category)
+ More information on Purchase Option Categories can be found [here](https://shopify.dev/docs/apps/selling-strategies/purchase-options/deferred#purchase-option-category)
+
+There are two API calls to GraphQL Admin API in the App.
 
 We create one API endpoint to create purchase options.
 We create one API endpoint for listing purchase options.
